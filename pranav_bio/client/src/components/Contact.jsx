@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import JSEncrypt from 'jsencrypt';
+import { PUBLIC_KEY } from '../publicKey';
+
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -7,6 +10,7 @@ const Contact = () => {
         message: ''
     });
     const [status, setStatus] = useState('');
+    const [useEncryption, setUseEncryption] = useState(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -14,24 +18,32 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setStatus('Sending...');
-        try {
-            const response = await fetch('http://localhost:5000/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            });
-            if (response.ok) {
-                setStatus('Message sent successfully!');
-                setFormData({ name: '', email: '', message: '' });
-                setTimeout(() => setStatus(''), 3000);
-            } else {
-                setStatus('Failed to send message.');
+        setStatus('Processing...');
+
+        let finalMessage = formData.message;
+
+        if (useEncryption) {
+            const encrypt = new JSEncrypt();
+            encrypt.setPublicKey(PUBLIC_KEY);
+            const encrypted = encrypt.encrypt(formData.message);
+            if (!encrypted) {
+                setStatus('Encryption failed. Message too long?');
+                return;
             }
-        } catch (error) {
-            console.error(error);
-            setStatus('Error sending message.');
+            finalMessage = `[ENCRYPTED]: ${encrypted}`;
         }
+
+        // Since we don't have a live backend on GitHub Pages, we'll simulate sending
+        // and log the result to console or alert the user.
+        console.log("Sending Message:", { ...formData, message: finalMessage });
+
+        // Simulate network delay
+        setTimeout(() => {
+            setStatus('Message "Sent" (Check Console for Output)');
+            alert(`Message Sent! \n\n${useEncryption ? 'Encrypted Content:\n' + finalMessage : 'Content:\n' + finalMessage}\n\n(Note: Backend is offline on GitHub Pages, so this is a simulation. Copy the encrypted text if needed!)`);
+            setFormData({ name: '', email: '', message: '' });
+            setTimeout(() => setStatus(''), 5000);
+        }, 1000);
     };
 
     return (
@@ -57,17 +69,29 @@ const Contact = () => {
                     </div>
                     <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label for="name">Name</label>
+                            <label htmlFor="name">Name</label>
                             <input type="text" id="name" placeholder="Your Name" required value={formData.name} onChange={handleChange} />
                         </div>
                         <div className="form-group">
-                            <label for="email">Email</label>
+                            <label htmlFor="email">Email</label>
                             <input type="email" id="email" placeholder="Your Email" required value={formData.email} onChange={handleChange} />
                         </div>
                         <div className="form-group">
-                            <label for="message">Message</label>
+                            <label htmlFor="message">Message</label>
                             <textarea id="message" rows="5" placeholder="Your Message" required value={formData.message} onChange={handleChange}></textarea>
                         </div>
+
+                        <div className="form-group checkbox-group" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
+                            <input
+                                type="checkbox"
+                                id="encrypt"
+                                checked={useEncryption}
+                                onChange={(e) => setUseEncryption(e.target.checked)}
+                                style={{ width: 'auto' }}
+                            />
+                            <label htmlFor="encrypt" style={{ marginBottom: 0, cursor: 'pointer' }}>Encrypt Message (RSA)</label>
+                        </div>
+
                         <button type="submit" className="btn btn-primary">
                             {status || 'Send Message'}
                         </button>
