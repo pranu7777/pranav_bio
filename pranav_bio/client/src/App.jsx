@@ -23,6 +23,20 @@ function App() {
       setIsDarkMode(true);
       document.documentElement.setAttribute('data-theme', 'dark');
     }
+
+    // Scroll Reveal Logic
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => observer.observe(section));
+
+    return () => sections.forEach(section => observer.unobserve(section));
   }, []);
 
   const toggleTheme = () => {
