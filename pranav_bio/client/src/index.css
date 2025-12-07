@@ -162,18 +162,14 @@ img {
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.05);
     box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
-}
-
-.btn-outline {
-    background: transparent;
-    border: 2px solid var(--primary);
-    color: var(--primary);
 }
 
 .btn-outline:hover {
     background: rgba(56, 189, 248, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
 }
 
 .btn-sm {
@@ -652,10 +648,28 @@ img {
     min-height: 200px;
 }
 
+/* Interactive Click Effects */
+.btn:active,
+.project-thumbnail:active,
+.experience-thumbnail:active,
+.social-links a:active,
+.modal-close:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+}
+
 .project-thumbnail:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1.02);
     border-color: var(--primary);
     background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.experience-thumbnail:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .thumbnail-icon {
