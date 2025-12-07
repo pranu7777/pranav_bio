@@ -35,40 +35,40 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" class="section contact-section">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-container glass">
-                    <div class="contact-info">
+        <section id="contact" className="section contact-section">
+            <div className="container">
+                <h2 className="section-title">Get In Touch</h2>
+                <div className="contact-container glass">
+                    <div className="contact-info">
                         <h3>Contact Information</h3>
                         <p>Feel free to reach out for collaborations or just a friendly hello.</p>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
+                        <div className="contact-item">
+                            <i className="fas fa-envelope"></i>
                             <span>mundakkalpranav979@gmail.com</span>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
+                        <div className="contact-item">
+                            <i className="fas fa-phone"></i>
                             <span>+353 89 226 2078</span>
                         </div>
-                        <div class="social-links">
-                            <a href="https://github.com/pranu7777" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <div className="social-links">
+                            <a href="https://github.com/pranu7777" target="_blank"><i className="fab fa-github"></i></a>
+                            <a href="#" target="_blank"><i className="fab fa-linkedin"></i></a>
                         </div>
                     </div>
-                    <form class="contact-form" onSubmit={handleSubmit}>
-                        <div class="form-group">
+                    <form className="contact-form" onSubmit={handleSubmit}>
+                        <div className="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" placeholder="Your Name" required value={formData.name} onChange={handleChange} />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" placeholder="Your Email" required value={formData.email} onChange={handleChange} />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" rows="5" placeholder="Your Message" required value={formData.message} onChange={handleChange}></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" className="btn btn-primary">
                             {status || 'Send Message'}
                         </button>
                     </form>

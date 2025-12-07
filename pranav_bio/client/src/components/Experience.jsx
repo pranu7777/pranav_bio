@@ -2,18 +2,18 @@ import React from 'react';
 
 const Experience = () => {
     return (
-        <section id="experience" class="section experience-section">
-            <div class="container">
-                <h2 class="section-title">Experience</h2>
-                <div class="timeline">
+        <section id="experience" className="section experience-section">
+            <div className="container">
+                <h2 className="section-title">Experience</h2>
+                <div className="timeline">
                     {/* Experience 1 */}
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass">
-                            <span class="date">Jan 2024 – Jan 2025</span>
+                    <div className="timeline-item">
+                        <div className="timeline-dot"></div>
+                        <div className="timeline-content glass">
+                            <span className="date">Jan 2024 – Jan 2025</span>
                             <h3>Data Analyst</h3>
-                            <p class="company">QBay Career</p>
-                            <ul class="experience-list">
+                            <p className="company">QBay Career</p>
+                            <ul className="experience-list">
                                 <li>Learner performance & trend analysis</li>
                                 <li>SQL + Python anomaly investigation</li>
                                 <li>Automated ETL workflows (20% time saved)</li>
@@ -24,13 +24,13 @@ const Experience = () => {
                         </div>
                     </div>
                     {/* Experience 2 */}
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass">
-                            <span class="date">Jun 2023 – Dec 2023</span>
+                    <div className="timeline-item">
+                        <div className="timeline-dot"></div>
+                        <div className="timeline-content glass">
+                            <span className="date">Jun 2023 – Dec 2023</span>
                             <h3>Web App Developer Intern</h3>
-                            <p class="company">Mentika</p>
-                            <ul class="experience-list">
+                            <p className="company">Mentika</p>
+                            <ul className="experience-list">
                                 <li>Responsive web apps using FastAPI</li>
                                 <li>Firebase integration</li>
                                 <li>Bug fixing, performance optimization</li>
