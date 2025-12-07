@@ -52,7 +52,7 @@ const Contact = () => {
                         </div>
                         <div className="social-links">
                             <a href="https://github.com/pranu7777" target="_blank"><i className="fab fa-github"></i></a>
-                            <a href="#" target="_blank"><i className="fab fa-linkedin"></i></a>
+                            <a href="https://www.linkedin.com/in/pranav-mundakkal-829730191/" target="_blank"><i className="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <form className="contact-form" onSubmit={handleSubmit}>
