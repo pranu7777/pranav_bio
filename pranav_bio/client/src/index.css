@@ -70,6 +70,24 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Initial Load Animation */
+.App {
+    animation: loadBlur 1.5s ease-out forwards;
+}
+
+@keyframes loadBlur {
+    0% {
+        filter: blur(10px);
+        opacity: 0;
+    }
+
+    100% {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+}
+
 a {
     text-decoration: none;
     color: inherit;
