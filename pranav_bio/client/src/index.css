@@ -57,6 +57,13 @@ html {
 body {
     font-family: var(--font-main);
     background-color: var(--bg-color);
+    background-image: url('./assets/bg.png');
+    /* Analytical background */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    /* Blends with bg-color for dark mode */
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
