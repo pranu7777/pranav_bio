@@ -12,7 +12,7 @@ const Hero = () => {
                     <p className="tagline">Transforming complex datasets into actionable insights.</p>
                     <div className="cta-buttons">
                         <a href="#projects" className="btn btn-primary">View Projects</a>
-                        <a href="/assets/resume.pdf" className="btn btn-outline" download>Download Resume <i
+                        <a href="assets/resume.pdf" className="btn btn-outline" download>Download Resume <i
                             className="fas fa-download"></i></a>
                     </div>
                 </div>
