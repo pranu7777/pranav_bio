@@ -1,0 +1,9 @@
+{
+    "name": "portfolio-root",
+    "version": "1.0.0",
+    "description": "Root proxy for pranav-portfolio",
+    "scripts": {
+        "start": "npm start --prefix pranav_bio",
+        "install-all": "npm run install-all --prefix pranav_bio"
+    }
+}
