@@ -951,6 +951,40 @@ footer {
     color: var(--text-color);
 }
 
+.modal-subtitle {
+    color: var(--secondary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.experience-list-modal {
+    padding-left: 1.5rem;
+    text-align: left;
+}
+
+.experience-list-modal li {
+    margin-bottom: 0.5rem;
+    list-style-type: disc;
+}
+
+.tech-stack {
+    color: var(--accent);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.modal-desc {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
 @keyframes fadeIn {
     to {
         opacity: 1;
